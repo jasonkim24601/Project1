@@ -85,8 +85,8 @@ class Ui_MainWindow(object):
         self.label_events.setText(_translate("MainWindow", "TextLabel"))
 
 
-    def clicked(self):
-        print("test")
+
+
 
 
 if __name__ == "__main__":
