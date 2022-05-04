@@ -26,19 +26,11 @@ class Ui_MainWindow(object):
         self.rButton_scissors = QtWidgets.QRadioButton(self.centralwidget)
         self.rButton_scissors.setGeometry(QtCore.QRect(160, 260, 82, 17))
         self.rButton_scissors.setObjectName("rButton_scissors")
-
-
-
         self.pButton_submit = QtWidgets.QPushButton(self.centralwidget)
         self.pButton_submit.setGeometry(QtCore.QRect(160, 280, 75, 23))
         self.pButton_submit.setObjectName("pButton_submit")
-
-
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(60, 20, 371, 61))
-
-
-
         font = QtGui.QFont()
         font.setPointSize(24)
         self.label.setFont(font)
@@ -56,8 +48,12 @@ class Ui_MainWindow(object):
         self.label_cpuscore.setGeometry(QtCore.QRect(340, 330, 47, 13))
         self.label_cpuscore.setObjectName("label_cpuscore")
         self.label_events = QtWidgets.QLabel(self.centralwidget)
-        self.label_events.setGeometry(QtCore.QRect(80, 100, 231, 91))
+        self.label_events.setGeometry(QtCore.QRect(80, 130, 231, 91))
         self.label_events.setObjectName("label_events")
+        self.label_playercpuchoice = QtWidgets.QLabel(self.centralwidget)
+        self.label_playercpuchoice.setGeometry(QtCore.QRect(80, 90, 301, 41))
+        self.label_playercpuchoice.setText("")
+        self.label_playercpuchoice.setObjectName("label_playercpuchoice")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 400, 21))
@@ -80,13 +76,9 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Rock Paper Scissors!"))
         self.label_2.setText(_translate("MainWindow", "Your Score:"))
         self.label_3.setText(_translate("MainWindow", "Computer\'s Score:"))
-        self.label_playerscore.setText(_translate("MainWindow", "TextLabel"))
-        self.label_cpuscore.setText(_translate("MainWindow", "TextLabel"))
-        self.label_events.setText(_translate("MainWindow", "TextLabel"))
-
-
-
-
+        self.label_playerscore.setText(_translate("MainWindow", "0"))
+        self.label_cpuscore.setText(_translate("MainWindow", "0"))
+        self.label_events.setText(_translate("MainWindow", "Select your choice and hit Go!"))
 
 
 if __name__ == "__main__":
