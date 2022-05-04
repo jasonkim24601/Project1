@@ -1,11 +1,13 @@
 from gui import *
+from controller import *
 
 
 def main():
-    window = Tk()
+    app = QApplication([])
+    window = Controller()
+    window.show()
+    app.exec()
 
-    widgets = GUI(window)
-    window.mainloop()
 
 
 if __name__ == '__main__':
