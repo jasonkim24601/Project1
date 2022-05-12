@@ -87,6 +87,7 @@ class Ui_MainWindow(object):
         self.label_player_paper.setPixmap(QtGui.QPixmap("paper.png"))
         self.label_player_paper.setObjectName("label_player_paper")
         self.label_cpu_rock = QtWidgets.QLabel(self.centralwidget)
+        self.label_cpu_rock.setEnabled(True)
         self.label_cpu_rock.setGeometry(QtCore.QRect(260, 100, 121, 101))
         self.label_cpu_rock.setText("")
         self.label_cpu_rock.setPixmap(QtGui.QPixmap("rock.png"))
@@ -121,7 +122,6 @@ class Ui_MainWindow(object):
         self.label_playerscore.setText(_translate("MainWindow", "0"))
         self.label_cpuscore.setText(_translate("MainWindow", "0"))
         self.label_events.setText(_translate("MainWindow", "Select your choice and hit Go!"))
-
 
 
 if __name__ == "__main__":

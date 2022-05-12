@@ -1,7 +1,6 @@
 from PyQt5.QtWidgets import *
 from gui import Ui_MainWindow
 from rps import *
-import emoji
 
 global playerScore
 playerScore = 0
@@ -18,7 +17,23 @@ class Controller(QMainWindow, Ui_MainWindow):
         self.label_playerscore.setText(str(playerScore))
         self.label_playerscore.setText(str(cpuScore))
 
+        # Start by hiding all the images
+        self.label_cpu_rock.hide()
+        self.label_cpu_paper.hide()
+        self.label_cpu_scissor.hide()
+        self.label_player_rock.hide()
+        self.label_player_paper.hide()
+        self.label_player_scissor.hide()
+
     def submit(self):
+
+        self.label_cpu_rock.hide()
+        self.label_cpu_paper.hide()
+        self.label_cpu_scissor.hide()
+        self.label_player_rock.hide()
+        self.label_player_paper.hide()
+        self.label_player_scissor.hide()
+
         playerChoice = 0
         playerChoiceText = 0
 
@@ -27,26 +42,25 @@ class Controller(QMainWindow, Ui_MainWindow):
 
         if self.rButton_rock.isChecked():
             playerChoice = 1
-            playerChoiceText = "Rock"
+
         if self.rButton_paper.isChecked():
             playerChoice = 2
-            playerChoiceText = "Paper"
+
         if self.rButton_scissors.isChecked():
             playerChoice = 3
-            playerChoiceText = "Scissors"
+
 
         cpus_choice = cpu_choice()
         rps_result = rps(playerChoice, cpus_choice)
 
-        if cpus_choice == 1:
-            cpuChoiceText = "Rock"
-        if cpus_choice == 2:
-            cpuChoiceText = "Paper"
-        if cpus_choice == 3:
-            cpuChoiceText = "Scissors"
 
-        # convert choices to text and then output each player's choice
-        outputText = "You chose %s, the computer chose %s" % (playerChoiceText, cpuChoiceText)
+
+
+
+
+
+
+        outputText = eventText(playerChoice, cpus_choice)
 
         # also update the scores here
         resultText = None

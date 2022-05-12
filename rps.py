@@ -1,5 +1,6 @@
 import random
 
+
 def cpu_choice():
     """
     This function exists to randomly choose the CPU's choice.
@@ -9,6 +10,7 @@ def cpu_choice():
     """
 
     return random.randint(1, 3)
+
 
 def rps(user_input, cpu_input):
     """
@@ -20,7 +22,6 @@ def rps(user_input, cpu_input):
     # 1 is rock
     # 2 is paper
     # 3 is scissors
-
 
     # first check for a draw
     if user_input == cpu_input:
@@ -47,3 +48,24 @@ def rps(user_input, cpu_input):
             return 2
         else:
             return 1
+
+
+def eventText(user_input, cpu_input):
+    if user_input == 1:
+        playerChoiceText = "Rock"
+    if user_input == 2:
+        playerChoiceText = "Paper"
+    if user_input == 3:
+        playerChoiceText = "Scissors"
+
+    if cpu_input == 1:
+        cpuChoiceText = "Rock"
+    if cpu_input == 2:
+        cpuChoiceText = "Paper"
+    if cpu_input == 3:
+        cpuChoiceText = "Scissors"
+
+    # convert choices to text and then output each player's choice
+    outputText = "You chose %s, the computer chose %s" % (playerChoiceText, cpuChoiceText)
+
+    return outputText
