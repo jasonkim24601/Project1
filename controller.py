@@ -53,13 +53,7 @@ class Controller(QMainWindow, Ui_MainWindow):
         cpus_choice = cpu_choice()
         rps_result = rps(playerChoice, cpus_choice)
 
-
-
-
-
-
-
-
+        # get text from eventText() in rps.py
         outputText = eventText(playerChoice, cpus_choice)
 
         # also update the scores here

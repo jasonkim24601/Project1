@@ -68,4 +68,6 @@ def eventText(user_input, cpu_input):
     # convert choices to text and then output each player's choice
     outputText = "You chose %s, the computer chose %s" % (playerChoiceText, cpuChoiceText)
 
+
+
     return outputText
