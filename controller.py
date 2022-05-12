@@ -12,12 +12,12 @@ class Controller(QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.setupUi(self)
-
+        self.pButton_again.clicked.connect(lambda: self.playAgain())
         self.pButton_submit.clicked.connect(lambda: self.submit())
         self.label_playerscore.setText(str(playerScore))
         self.label_playerscore.setText(str(cpuScore))
 
-        # Start by hiding all the images and win text
+        # Start by hiding all the images and post game functions
         self.label_cpu_rock.hide()
         self.label_cpu_paper.hide()
         self.label_cpu_scissor.hide()
@@ -25,6 +25,8 @@ class Controller(QMainWindow, Ui_MainWindow):
         self.label_player_paper.hide()
         self.label_player_scissor.hide()
 
+        self.pButton_again.hide()
+        self.pButton_quit.hide()
         self.label_winner.hide()
 
     def submit(self):
@@ -42,6 +44,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.label_player_rock.hide()
             self.label_player_paper.hide()
             self.label_player_scissor.hide()
+
 
             playerChoice = None
 
@@ -97,6 +100,8 @@ class Controller(QMainWindow, Ui_MainWindow):
                 self.pButton_submit.hide()
                 self.label_winner.setText("YOU WIN!!!")
                 self.label_winner.show()
+                self.pButton_again.show()
+                self.pButton_quit.show()
             if cpuScore == 5:
                 self.rButton_rock.hide()
                 self.rButton_paper.hide()
@@ -104,5 +109,24 @@ class Controller(QMainWindow, Ui_MainWindow):
                 self.pButton_submit.hide()
                 self.label_winner.setText("YOU LOSE...")
                 self.label_winner.show()
+                self.label_winner.show()
+                self.pButton_again.show()
+                self.pButton_quit.show()
         else:
             self.label_events.setText('Please select an option!')
+
+    def playAgain(self):
+        global playerScore
+        global cpuScore
+        playerScore = 0
+        cpuScore = 0
+
+        self.pButton_again.hide()
+        self.pButton_quit.hide()
+        self.label_winner.hide()
+
+        self.rButton_rock.show()
+        self.rButton_paper.show()
+        self.rButton_scissors.show()
+        self.pButton_submit.show()
+

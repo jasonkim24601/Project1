@@ -106,6 +106,12 @@ class Ui_MainWindow(object):
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
         self.label_4.setGeometry(QtCore.QRect(170, 70, 91, 16))
         self.label_4.setObjectName("label_4")
+        self.pButton_again = QtWidgets.QPushButton(self.centralwidget)
+        self.pButton_again.setGeometry(QtCore.QRect(300, 290, 75, 23))
+        self.pButton_again.setObjectName("pButton_again")
+        self.pButton_quit = QtWidgets.QPushButton(self.centralwidget)
+        self.pButton_quit.setGeometry(QtCore.QRect(300, 320, 75, 23))
+        self.pButton_quit.setObjectName("pButton_quit")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 400, 21))
@@ -133,6 +139,8 @@ class Ui_MainWindow(object):
         self.label_events.setText(_translate("MainWindow", "Select your choice and hit Go!"))
         self.label_winner.setText(_translate("MainWindow", "TextLabel"))
         self.label_4.setText(_translate("MainWindow", "First to 5 wins!"))
+        self.pButton_again.setText(_translate("MainWindow", "Play Again?"))
+        self.pButton_quit.setText(_translate("MainWindow", "Quit"))
 
 
 if __name__ == "__main__":
