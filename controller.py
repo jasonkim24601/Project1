@@ -26,49 +26,54 @@ class Controller(QMainWindow, Ui_MainWindow):
         self.label_player_scissor.hide()
 
     def submit(self):
+        """
 
-        self.label_cpu_rock.hide()
-        self.label_cpu_paper.hide()
-        self.label_cpu_scissor.hide()
-        self.label_player_rock.hide()
-        self.label_player_paper.hide()
-        self.label_player_scissor.hide()
+        :return:
+        """
+        # Make sure one of the radio buttons is checked before doing anything
+        if self.rButton_rock.isChecked() or self.rButton_paper.isChecked() or self.rButton_scissors.isChecked():
+            self.label_cpu_rock.hide()
+            self.label_cpu_paper.hide()
+            self.label_cpu_scissor.hide()
+            self.label_player_rock.hide()
+            self.label_player_paper.hide()
+            self.label_player_scissor.hide()
 
-        playerChoice = 0
-        playerChoiceText = 0
+            playerChoice = 0
 
-        global playerScore
-        global cpuScore
+            global playerScore
+            global cpuScore
 
-        if self.rButton_rock.isChecked():
-            playerChoice = 1
+            if self.rButton_rock.isChecked():
+                playerChoice = 1
 
-        if self.rButton_paper.isChecked():
-            playerChoice = 2
+            if self.rButton_paper.isChecked():
+                playerChoice = 2
 
-        if self.rButton_scissors.isChecked():
-            playerChoice = 3
+            if self.rButton_scissors.isChecked():
+                playerChoice = 3
 
+            cpus_choice = cpu_choice()
+            rps_result = rps(playerChoice, cpus_choice)
 
-        cpus_choice = cpu_choice()
-        rps_result = rps(playerChoice, cpus_choice)
+            # get text from eventText() in rps.py
+            outputText = eventText(playerChoice, cpus_choice)
 
-        # get text from eventText() in rps.py
-        outputText = eventText(playerChoice, cpus_choice)
+            # update the scores and append outputText to reflect it
+            resultText = None
+            if rps_result == 0:
+                resultText = "\nIt's a tie!"
+            if rps_result == 1:
+                resultText = "\nYou win!"
+                playerScore += 1
+            if rps_result == 2:
+                resultText = "\nThe CPU wins!"
+                cpuScore += 1
 
-        # also update the scores here
-        resultText = None
-        if rps_result == 0:
-            resultText = "\nIt's a tie!"
-        if rps_result == 1:
-            resultText = "\nYou win!"
-            playerScore += 1
-        if rps_result == 2:
-            resultText = "\nThe CPU wins!"
-            cpuScore += 1
+            outputText = outputText + resultText
 
-        outputText = outputText + resultText
-
-        self.label_events.setText(outputText)
-        self.label_playerscore.setText(str(playerScore))
-        self.label_cpuscore.setText(str(cpuScore))
+            self.label_events.setText(outputText)
+            self.label_playerscore.setText(str(playerScore))
+            self.label_cpuscore.setText(str(cpuScore))
+        else:
+            self.label_events.setText("Please select an option!")
