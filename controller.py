@@ -41,21 +41,35 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.label_player_paper.hide()
             self.label_player_scissor.hide()
 
-            playerChoice = 0
+            playerChoice = None
 
             global playerScore
             global cpuScore
             # Grab value from radio buttons to determine human player's choice
+            # Also show the correct corresponding image.
             if self.rButton_rock.isChecked():
                 playerChoice = 1
-
+                self.label_player_rock.show()
             if self.rButton_paper.isChecked():
                 playerChoice = 2
-
+                self.label_player_paper.show()
             if self.rButton_scissors.isChecked():
                 playerChoice = 3
-
+                self.label_player_scissor.show()
+            # generate cpu's choice and show the corresponding image.
             cpus_choice = cpu_choice()
+            if cpus_choice == 1:
+                self.label_cpu_rock.show()
+            if cpus_choice == 2:
+                self.label_cpu_paper.show()
+            if cpus_choice == 3:
+                self.label_cpu_scissor.show()
+
+
+
+
+
+
             rps_result = rps(playerChoice, cpus_choice)
 
             # get text from eventText() in rps.py
