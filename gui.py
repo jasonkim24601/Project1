@@ -97,6 +97,15 @@ class Ui_MainWindow(object):
         self.label_player_rock.setText("")
         self.label_player_rock.setPixmap(QtGui.QPixmap("rock.png"))
         self.label_player_rock.setObjectName("label_player_rock")
+        self.label_winner = QtWidgets.QLabel(self.centralwidget)
+        self.label_winner.setGeometry(QtCore.QRect(120, 260, 261, 51))
+        font = QtGui.QFont()
+        font.setPointSize(24)
+        self.label_winner.setFont(font)
+        self.label_winner.setObjectName("label_winner")
+        self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_4.setGeometry(QtCore.QRect(170, 70, 91, 16))
+        self.label_4.setObjectName("label_4")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 400, 21))
@@ -122,6 +131,8 @@ class Ui_MainWindow(object):
         self.label_playerscore.setText(_translate("MainWindow", "0"))
         self.label_cpuscore.setText(_translate("MainWindow", "0"))
         self.label_events.setText(_translate("MainWindow", "Select your choice and hit Go!"))
+        self.label_winner.setText(_translate("MainWindow", "TextLabel"))
+        self.label_4.setText(_translate("MainWindow", "First to 5 wins!"))
 
 
 if __name__ == "__main__":

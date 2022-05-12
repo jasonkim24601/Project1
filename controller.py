@@ -17,13 +17,15 @@ class Controller(QMainWindow, Ui_MainWindow):
         self.label_playerscore.setText(str(playerScore))
         self.label_playerscore.setText(str(cpuScore))
 
-        # Start by hiding all the images
+        # Start by hiding all the images and win text
         self.label_cpu_rock.hide()
         self.label_cpu_paper.hide()
         self.label_cpu_scissor.hide()
         self.label_player_rock.hide()
         self.label_player_paper.hide()
         self.label_player_scissor.hide()
+
+        self.label_winner.hide()
 
     def submit(self):
         """
@@ -65,11 +67,7 @@ class Controller(QMainWindow, Ui_MainWindow):
             if cpus_choice == 3:
                 self.label_cpu_scissor.show()
 
-
-
-
-
-
+            # process who won
             rps_result = rps(playerChoice, cpus_choice)
 
             # get text from eventText() in rps.py
@@ -90,5 +88,21 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.label_events.setText(outputText)
             self.label_playerscore.setText(str(playerScore))
             self.label_cpuscore.setText(str(cpuScore))
+
+            # if someone made it to 5 points...
+            if playerScore == 5:
+                self.rButton_rock.hide()
+                self.rButton_paper.hide()
+                self.rButton_scissors.hide()
+                self.pButton_submit.hide()
+                self.label_winner.setText("YOU WIN!!!")
+                self.label_winner.show()
+            if cpuScore == 5:
+                self.rButton_rock.hide()
+                self.rButton_paper.hide()
+                self.rButton_scissors.hide()
+                self.pButton_submit.hide()
+                self.label_winner.setText("YOU LOSE...")
+                self.label_winner.show()
         else:
             self.label_events.setText('Please select an option!')
