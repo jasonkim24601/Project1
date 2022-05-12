@@ -120,6 +120,8 @@ class Controller(QMainWindow, Ui_MainWindow):
         global cpuScore
         playerScore = 0
         cpuScore = 0
+        self.label_playerscore.setText(str(playerScore))
+        self.label_cpuscore.setText(str(cpuScore))
 
         self.pButton_again.hide()
         self.pButton_quit.hide()
