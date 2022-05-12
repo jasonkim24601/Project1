@@ -30,7 +30,7 @@ class Controller(QMainWindow, Ui_MainWindow):
         self.pButton_quit.hide()
         self.label_winner.hide()
 
-    def submit(self):
+    def submit(self) -> None:
         """
         Method to handle actions once Go! button is pushed.
         Pulls value from selected radio button and uses rps() from rps.py to process it.
@@ -115,7 +115,7 @@ class Controller(QMainWindow, Ui_MainWindow):
         else:
             self.label_events.setText('Please select an option!')
 
-    def playAgain(self):
+    def playAgain(self) -> None:
         """
         Method for when Play Again button is pushed
         Hides post game GUI elements and resets score.
@@ -136,10 +136,9 @@ class Controller(QMainWindow, Ui_MainWindow):
         self.rButton_scissors.show()
         self.pButton_submit.show()
 
-    def quit(self):
+    def quit(self) -> None:
         """
         Method for when Quit button is pushed
         Ends the game and closes the window.
-        :return:
         """
         self.window().destroy()

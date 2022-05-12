@@ -1,7 +1,7 @@
 import random
 
 
-def cpu_choice():
+def cpu_choice() -> int:
     """
     This function exists to randomly choose the CPU's choice.
     The return value here will be used for printing out the computer's choice on the GUI and to
@@ -12,7 +12,7 @@ def cpu_choice():
     return random.randint(1, 3)
 
 
-def rps(user_input, cpu_input):
+def rps(user_input, cpu_input) -> str:
     """
     This function will grab the user input, generate a random CPU choice and see who wins or if a draw occurs.
     :param user_input: Input grabbed from the selected radio button on the GUI:
@@ -50,7 +50,7 @@ def rps(user_input, cpu_input):
             return 1
 
 
-def eventText(user_input, cpu_input):
+def eventText(user_input, cpu_input) -> str:
     """
     Method to change the user's and the computer's input into text and creates a string to convey each players' choice.
     :param user_input: Input passed from radio button selection.
