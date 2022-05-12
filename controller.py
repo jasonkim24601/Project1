@@ -27,8 +27,10 @@ class Controller(QMainWindow, Ui_MainWindow):
 
     def submit(self):
         """
-
-        :return:
+        Method to handle actions once Go! button is pushed.
+        Pulls value from selected radio button and uses rps() from rps.py to process it.
+        Then it uses eventText() from rps.py to convert the results into text.
+        After that it appends the text received by tacking on the winning player announcement, updates the score and displays the proper image for each player.
         """
         # Make sure one of the radio buttons is checked before doing anything
         if self.rButton_rock.isChecked() or self.rButton_paper.isChecked() or self.rButton_scissors.isChecked():
@@ -43,7 +45,7 @@ class Controller(QMainWindow, Ui_MainWindow):
 
             global playerScore
             global cpuScore
-
+            # Grab value from radio buttons to determine human player's choice
             if self.rButton_rock.isChecked():
                 playerChoice = 1
 
@@ -69,11 +71,10 @@ class Controller(QMainWindow, Ui_MainWindow):
             if rps_result == 2:
                 resultText = "\nThe CPU wins!"
                 cpuScore += 1
-
             outputText = outputText + resultText
-
+            # change labels on GUI
             self.label_events.setText(outputText)
             self.label_playerscore.setText(str(playerScore))
             self.label_cpuscore.setText(str(cpuScore))
         else:
-            self.label_events.setText("Please select an option!")
+            self.label_events.setText('Please select an option!')
