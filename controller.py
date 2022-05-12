@@ -13,6 +13,7 @@ class Controller(QMainWindow, Ui_MainWindow):
         super().__init__(*args, **kwargs)
         self.setupUi(self)
         self.pButton_again.clicked.connect(lambda: self.playAgain())
+        self.pButton_quit.clicked.connect(lambda: self.quit())
         self.pButton_submit.clicked.connect(lambda: self.submit())
         self.label_playerscore.setText(str(playerScore))
         self.label_playerscore.setText(str(cpuScore))
@@ -44,7 +45,6 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.label_player_rock.hide()
             self.label_player_paper.hide()
             self.label_player_scissor.hide()
-
 
             playerChoice = None
 
@@ -116,6 +116,10 @@ class Controller(QMainWindow, Ui_MainWindow):
             self.label_events.setText('Please select an option!')
 
     def playAgain(self):
+        """
+        Method for when Play Again button is pushed
+        Hides post game GUI elements and resets score.
+        """
         global playerScore
         global cpuScore
         playerScore = 0
@@ -132,3 +136,10 @@ class Controller(QMainWindow, Ui_MainWindow):
         self.rButton_scissors.show()
         self.pButton_submit.show()
 
+    def quit(self):
+        """
+        Method for when Quit button is pushed
+        Ends the game and closes the window.
+        :return:
+        """
+        self.window().destroy()

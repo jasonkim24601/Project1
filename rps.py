@@ -51,6 +51,12 @@ def rps(user_input, cpu_input):
 
 
 def eventText(user_input, cpu_input):
+    """
+    Method to change the user's and the computer's input into text and creates a string to convey each players' choice.
+    :param user_input: Input passed from radio button selection.
+    :param cpu_input: Input passed from cpu_choice at random
+    :return: String containing player's and computer's choice formatted.
+    """
     if user_input == 1:
         playerChoiceText = "Rock"
     if user_input == 2:
@@ -67,7 +73,5 @@ def eventText(user_input, cpu_input):
 
     # convert choices to text and then output each player's choice
     outputText = "You chose %s, the computer chose %s" % (playerChoiceText, cpuChoiceText)
-
-
 
     return outputText
